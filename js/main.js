@@ -69,6 +69,8 @@ function loadSiteConfig() {
 
     // Apply theme colors
     applyThemeColors(config);
+    // Apply theme effects
+    applyThemeEffects(config);
 
     // Apply typography
     applyTypography(config);
@@ -107,8 +109,66 @@ function applyThemeColors(config) {
         }
     }
     if (config.secondaryColor) root.style.setProperty('--secondary-color', config.secondaryColor);
+    if (config.tertiaryColor) root.style.setProperty('--tertiary-color', config.tertiaryColor);
     if (config.goldColor) root.style.setProperty('--gold-color', config.goldColor);
     if (config.successColor) root.style.setProperty('--success-color', config.successColor);
+}
+
+function applyThemeEffects(config) {
+    const root = document.documentElement;
+
+    // Border Radius
+    if (config.borderRadius) {
+        switch (config.borderRadius) {
+            case 'sharp':
+                root.style.setProperty('--radius-sm', '0px');
+                root.style.setProperty('--radius-md', '2px');
+                root.style.setProperty('--radius-lg', '4px');
+                root.style.setProperty('--radius-xl', '8px');
+                break;
+            case 'rounded':
+                root.style.setProperty('--radius-sm', '8px');
+                root.style.setProperty('--radius-md', '16px');
+                root.style.setProperty('--radius-lg', '24px');
+                root.style.setProperty('--radius-xl', '32px');
+                break;
+            case 'pill':
+                root.style.setProperty('--radius-sm', '12px');
+                root.style.setProperty('--radius-md', '24px');
+                root.style.setProperty('--radius-lg', '30px');
+                root.style.setProperty('--radius-xl', '40px');
+                break;
+            case 'soft':
+            default:
+                root.style.setProperty('--radius-sm', '4px');
+                root.style.setProperty('--radius-md', '8px');
+                root.style.setProperty('--radius-lg', '16px');
+                root.style.setProperty('--radius-xl', '24px');
+                break;
+        }
+    }
+
+    // Animation Speed
+    if (config.animationSpeed) {
+        switch (config.animationSpeed) {
+            case 'fast':
+                root.style.setProperty('--transition-fast', '0.1s ease');
+                root.style.setProperty('--transition-normal', '0.2s ease');
+                root.style.setProperty('--transition-slow', '0.3s ease');
+                break;
+            case 'slow':
+                root.style.setProperty('--transition-fast', '0.3s ease');
+                root.style.setProperty('--transition-normal', '0.5s ease');
+                root.style.setProperty('--transition-slow', '0.8s ease');
+                break;
+            case 'normal':
+            default:
+                root.style.setProperty('--transition-fast', '0.15s ease');
+                root.style.setProperty('--transition-normal', '0.3s ease');
+                root.style.setProperty('--transition-slow', '0.5s ease');
+                break;
+        }
+    }
 }
 
 function applyTypography(config) {

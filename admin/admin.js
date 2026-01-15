@@ -281,10 +281,17 @@ function loadAllFormData() {
     // Theme Colors
     setColorValue('themePrimaryColor', config.primaryColor);
     setColorValue('themePrimaryLight', config.primaryLight);
+    setColorValue('themePrimaryDark', config.primaryDark);
     setColorValue('themeAccentColor', config.accentColor);
     setColorValue('themeSecondaryColor', config.secondaryColor);
+    setColorValue('themeTertiaryColor', config.tertiaryColor);
     setColorValue('themeGoldColor', config.goldColor);
     setColorValue('themeSuccessColor', config.successColor);
+
+    // Theme Effects
+    if (config.borderRadius) setInputValue('themeBorderRadius', config.borderRadius);
+    if (config.animationSpeed) setInputValue('themeAnimationSpeed', config.animationSpeed);
+    
     updateColorPreviews();
 
     // Typography
@@ -375,10 +382,14 @@ function saveThemeColors() {
     const updates = {
         primaryColor: document.getElementById('themePrimaryColor').value,
         primaryLight: document.getElementById('themePrimaryLight').value,
+        primaryDark: document.getElementById('themePrimaryDark').value,
         accentColor: document.getElementById('themeAccentColor').value,
         secondaryColor: document.getElementById('themeSecondaryColor').value,
+        tertiaryColor: document.getElementById('themeTertiaryColor').value,
         goldColor: document.getElementById('themeGoldColor').value,
-        successColor: document.getElementById('themeSuccessColor').value
+        successColor: document.getElementById('themeSuccessColor').value,
+        borderRadius: document.getElementById('themeBorderRadius').value,
+        animationSpeed: document.getElementById('themeAnimationSpeed').value
     };
 
     dataManager.updateConfig(updates);
@@ -951,9 +962,11 @@ function deleteTestimonial(index) {
 function initColorPickers() {
     const colorPairs = [
         ['themePrimaryColor', 'themePrimaryColorText', 'previewPrimary'],
-        ['themePrimaryLight', 'themePrimaryLightText', null],
+        ['themePrimaryLight', 'themePrimaryLightText', 'previewPrimaryLight'],
+        ['themePrimaryDark', 'themePrimaryDarkText', 'previewPrimaryDark'],
         ['themeAccentColor', 'themeAccentColorText', 'previewAccent'],
         ['themeSecondaryColor', 'themeSecondaryColorText', 'previewSecondary'],
+        ['themeTertiaryColor', 'themeTertiaryColorText', 'previewTertiary'],
         ['themeGoldColor', 'themeGoldColorText', 'previewGold'],
         ['themeSuccessColor', 'themeSuccessColorText', 'previewSuccess']
     ];
@@ -987,8 +1000,11 @@ function updateColorPreview(previewId, color) {
 
 function updateColorPreviews() {
     updateColorPreview('previewPrimary', document.getElementById('themePrimaryColor').value);
+    updateColorPreview('previewPrimaryLight', document.getElementById('themePrimaryLight').value);
+    updateColorPreview('previewPrimaryDark', document.getElementById('themePrimaryDark').value);
     updateColorPreview('previewAccent', document.getElementById('themeAccentColor').value);
     updateColorPreview('previewSecondary', document.getElementById('themeSecondaryColor').value);
+    updateColorPreview('previewTertiary', document.getElementById('themeTertiaryColor').value);
     updateColorPreview('previewGold', document.getElementById('themeGoldColor').value);
     updateColorPreview('previewSuccess', document.getElementById('themeSuccessColor').value);
 }

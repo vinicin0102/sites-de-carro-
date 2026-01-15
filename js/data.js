@@ -10,19 +10,19 @@ const DEFAULT_CONFIG = {
     siteDescription: 'Concessionária Premium de Veículos',
     logoUrl: '',
     faviconUrl: '',
-    
+
     // Contact Information
     phone: '(11) 99999-9999',
     whatsapp: '5511999999999',
     email: 'contato@autoelite.com.br',
-    
+
     // Location
     address: 'Av. Paulista, 1000 - São Paulo, SP',
     city: 'São Paulo, SP',
     workingHours: 'Seg-Sab: 8h-18h',
     mapCoordinates: { lat: -23.5505, lng: -46.6333 },
     mapEmbed: '',
-    
+
     // Theme Colors
     primaryColor: '#1a1a2e',
     primaryLight: '#16213e',
@@ -30,26 +30,29 @@ const DEFAULT_CONFIG = {
     accentColor: '#e94560',
     secondaryColor: '#0f3460',
     goldColor: '#ffd700',
+    tertiaryColor: '#533483',
     successColor: '#00d26a',
-    
+    borderRadius: 'soft',
+    animationSpeed: 'normal',
+
     // Typography
     fontPrimary: 'Montserrat',
     fontSecondary: 'Poppins',
     fontAccent: 'Playfair Display',
-    
+
     // Social Media
     facebook: '',
     instagram: '',
     youtube: '',
     linkedin: '',
-    
+
     // Hero Section
     heroBadgeText: 'Concessionária Premium #1',
     heroTitle1: 'Encontre o',
     heroTitle2: 'Carro dos Seus Sonhos',
     heroDescription: 'Descubra nossa seleção exclusiva de veículos premium com as melhores condições de pagamento e garantia completa.',
     heroImageUrl: '',
-    
+
     // Stats
     stats: [
         { number: '500+', label: 'Veículos Vendidos' },
@@ -57,22 +60,22 @@ const DEFAULT_CONFIG = {
         { number: '98%', label: 'Clientes Satisfeitos' },
         { number: '50+', label: 'Marcas Disponíveis' }
     ],
-    
+
     // Section Titles
     vehiclesSectionSubtitle: 'Nossa Frota',
     vehiclesSectionTitle: 'Veículos Disponíveis',
     vehiclesSectionDescription: 'Explore nossa seleção exclusiva de veículos seminovos e 0km com garantia e procedência comprovada.',
-    
+
     featuresSectionSubtitle: 'Por Que Nos Escolher',
     featuresSectionTitle: 'Excelência em Cada Detalhe',
     featuresSectionDescription: 'Há mais de uma década entregando qualidade, confiança e as melhores condições do mercado.',
-    
+
     testimonialsSectionSubtitle: 'Depoimentos',
     testimonialsSectionTitle: 'O Que Nossos Clientes Dizem',
-    
+
     ctaTitle: 'Pronto Para Encontrar Seu Próximo Carro?',
     ctaDescription: 'Entre em contato agora e receba uma proposta exclusiva. Nossa equipe está pronta para ajudar você!',
-    
+
     // Footer
     footerDescription: 'Há mais de 15 anos oferecendo os melhores veículos com qualidade, confiança e as melhores condições de pagamento do mercado.',
     footerCopyright: '© 2026 Auto Elite. Todos os direitos reservados.'
@@ -416,10 +419,10 @@ class DataManager {
             testimonials: 'autoelite_testimonials',
             analytics: 'autoelite_analytics'
         };
-        
+
         this.init();
     }
-    
+
     init() {
         // Initialize with default data if not exists
         if (!this.getConfig()) {
@@ -441,34 +444,34 @@ class DataManager {
             this.saveAnalytics(DEFAULT_ANALYTICS);
         }
     }
-    
+
     // Config methods
     getConfig() {
         const data = localStorage.getItem(this.storageKeys.config);
         return data ? JSON.parse(data) : null;
     }
-    
+
     saveConfig(config) {
         localStorage.setItem(this.storageKeys.config, JSON.stringify(config));
     }
-    
+
     updateConfig(updates) {
         const config = this.getConfig() || DEFAULT_CONFIG;
         const updatedConfig = { ...config, ...updates };
         this.saveConfig(updatedConfig);
         return updatedConfig;
     }
-    
+
     // Vehicles methods
     getVehicles() {
         const data = localStorage.getItem(this.storageKeys.vehicles);
         return data ? JSON.parse(data) : null;
     }
-    
+
     saveVehicles(vehicles) {
         localStorage.setItem(this.storageKeys.vehicles, JSON.stringify(vehicles));
     }
-    
+
     addVehicle(vehicle) {
         const vehicles = this.getVehicles() || [];
         vehicle.id = vehicles.length > 0 ? Math.max(...vehicles.map(v => v.id)) + 1 : 1;
@@ -476,7 +479,7 @@ class DataManager {
         this.saveVehicles(vehicles);
         return vehicle;
     }
-    
+
     updateVehicle(id, updates) {
         const vehicles = this.getVehicles() || [];
         const index = vehicles.findIndex(v => v.id === id);
@@ -487,74 +490,74 @@ class DataManager {
         }
         return null;
     }
-    
+
     deleteVehicle(id) {
         const vehicles = this.getVehicles() || [];
         const filtered = vehicles.filter(v => v.id !== id);
         this.saveVehicles(filtered);
         return true;
     }
-    
+
     getVehicleById(id) {
         const vehicles = this.getVehicles() || [];
         return vehicles.find(v => v.id === id);
     }
-    
+
     getVehiclesByCategory(category) {
         const vehicles = this.getVehicles() || [];
         if (category === 'all') return vehicles.filter(v => !v.sold);
         return vehicles.filter(v => v.category === category && !v.sold);
     }
-    
+
     getFeaturedVehicles() {
         const vehicles = this.getVehicles() || [];
         return vehicles.filter(v => v.featured && !v.sold);
     }
-    
+
     // Categories methods
     getCategories() {
         const data = localStorage.getItem(this.storageKeys.categories);
         return data ? JSON.parse(data) : null;
     }
-    
+
     saveCategories(categories) {
         localStorage.setItem(this.storageKeys.categories, JSON.stringify(categories));
     }
-    
+
     // Features methods
     getFeatures() {
         const data = localStorage.getItem(this.storageKeys.features);
         return data ? JSON.parse(data) : null;
     }
-    
+
     saveFeatures(features) {
         localStorage.setItem(this.storageKeys.features, JSON.stringify(features));
     }
-    
+
     // Testimonials methods
     getTestimonials() {
         const data = localStorage.getItem(this.storageKeys.testimonials);
         return data ? JSON.parse(data) : null;
     }
-    
+
     saveTestimonials(testimonials) {
         localStorage.setItem(this.storageKeys.testimonials, JSON.stringify(testimonials));
     }
-    
+
     // Analytics methods
     getAnalytics() {
         const data = localStorage.getItem(this.storageKeys.analytics);
         return data ? JSON.parse(data) : null;
     }
-    
+
     saveAnalytics(analytics) {
         localStorage.setItem(this.storageKeys.analytics, JSON.stringify(analytics));
     }
-    
+
     trackPageView() {
         const analytics = this.getAnalytics() || DEFAULT_ANALYTICS;
         analytics.totalViews++;
-        
+
         // Track daily visits
         const today = new Date().toISOString().split('T')[0];
         const todayVisit = analytics.dailyVisits.find(v => v.date === today);
@@ -563,28 +566,28 @@ class DataManager {
         } else {
             analytics.dailyVisits.push({ date: today, count: 1 });
         }
-        
+
         // Keep only last 30 days
         if (analytics.dailyVisits.length > 30) {
             analytics.dailyVisits = analytics.dailyVisits.slice(-30);
         }
-        
+
         this.saveAnalytics(analytics);
     }
-    
+
     trackVehicleView(vehicleId) {
         const analytics = this.getAnalytics() || DEFAULT_ANALYTICS;
         analytics.vehicleViews[vehicleId] = (analytics.vehicleViews[vehicleId] || 0) + 1;
         this.saveAnalytics(analytics);
     }
-    
+
     trackWhatsappClick() {
         const analytics = this.getAnalytics() || DEFAULT_ANALYTICS;
         analytics.whatsappClicks++;
         analytics.totalClicks++;
         this.saveAnalytics(analytics);
     }
-    
+
     // Reset to defaults
     resetAllData() {
         this.saveConfig(DEFAULT_CONFIG);
@@ -594,7 +597,7 @@ class DataManager {
         this.saveTestimonials(DEFAULT_TESTIMONIALS);
         this.saveAnalytics(DEFAULT_ANALYTICS);
     }
-    
+
     // Export data
     exportData() {
         return {
@@ -606,7 +609,7 @@ class DataManager {
             analytics: this.getAnalytics()
         };
     }
-    
+
     // Import data
     importData(data) {
         if (data.config) this.saveConfig(data.config);
