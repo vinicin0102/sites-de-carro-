@@ -44,7 +44,7 @@ function initNavigation() {
             document.getElementById('pageTitle').textContent = this.querySelector('span').textContent;
 
             // Close mobile menu
-            document.getElementById('adminSidebar').classList.remove('active');
+            closeMobileMenu();
         });
     });
 }
@@ -92,17 +92,49 @@ function showPanel(panelId) {
 function initMobileMenu() {
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const sidebar = document.getElementById('adminSidebar');
+    const overlay = document.getElementById('sidebarOverlay');
 
-    mobileMenuBtn.addEventListener('click', function () {
-        sidebar.classList.toggle('active');
+    // Toggle menu on button click
+    mobileMenuBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        toggleMobileMenu();
     });
 
-    // Close on outside click
-    document.addEventListener('click', function (e) {
-        if (!sidebar.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-            sidebar.classList.remove('active');
+    // Close on overlay click
+    overlay.addEventListener('click', function () {
+        closeMobileMenu();
+    });
+
+    // Close on escape key
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+            closeMobileMenu();
         }
     });
+}
+
+function toggleMobileMenu() {
+    const sidebar = document.getElementById('adminSidebar');
+    const overlay = document.getElementById('sidebarOverlay');
+
+    const isOpen = sidebar.classList.contains('active');
+
+    if (isOpen) {
+        closeMobileMenu();
+    } else {
+        sidebar.classList.add('active');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeMobileMenu() {
+    const sidebar = document.getElementById('adminSidebar');
+    const overlay = document.getElementById('sidebarOverlay');
+
+    sidebar.classList.remove('active');
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
 }
 
 // ==========================================
