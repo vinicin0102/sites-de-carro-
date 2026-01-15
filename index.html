@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Auto Elite - Concessionária Premium de Veículos. Encontre o carro dos seus sonhos com as melhores condições do mercado.">
+    <meta name="keywords" content="carros, veículos, concessionária, automóveis, comprar carro, carros usados, carros novos">
+    <meta name="author" content="Auto Elite">
+    
+    <title>Auto Elite | Concessionária Premium de Veículos</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-logo" id="loaderLogoText">AUTO ELITE</div>
+            <div class="loader-spinner"></div>
+        </div>
+    </div>
+
+    <!-- Animated Background -->
+    <div class="animated-bg"></div>
+    
+    <!-- Floating Particles -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-container">
+                <a href="#" class="logo">
+                    <img src="images/logo.png" alt="Auto Elite Logo" id="siteLogo" onerror="this.style.display='none'">
+                    <span class="logo-text" id="logoText">AUTO ELITE</span>
+                </a>
+                
+                <div class="top-info" id="topInfo">
+                    <div class="top-info-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <a href="tel:" id="headerPhone">(11) 99999-9999</a>
+                    </div>
+                    <div class="top-info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span id="headerLocation">São Paulo, SP</span>
+                    </div>
+                    <div class="top-info-item">
+                        <i class="fas fa-clock"></i>
+                        <span id="headerHours">Seg-Sab: 8h-18h</span>
+                    </div>
+                </div>
+
+                <nav class="nav">
+                    <ul class="nav-menu" id="navMenu">
+                        <li><a href="#home" class="nav-link active">Início</a></li>
+                        <li><a href="#vehicles" class="nav-link">Veículos</a></li>
+                        <li><a href="#about" class="nav-link">Sobre</a></li>
+                        <li><a href="#contact" class="nav-link">Contato</a></li>
+                    </ul>
+                    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero section" id="home">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <div class="hero-badge">
+                            <i class="fas fa-star"></i>
+                            <span id="heroBadgeText">Concessionária Premium #1</span>
+                        </div>
+                        <h1 class="hero-title">
+                            <span id="heroTitle1">Encontre o</span>
+                            <span class="text-gradient" id="heroTitle2">Carro dos Seus Sonhos</span>
+                        </h1>
+                        <p class="hero-description" id="heroDescription">
+                            Descubra nossa seleção exclusiva de veículos premium com as melhores condições de pagamento e garantia completa.
+                        </p>
+                        <div class="hero-buttons">
+                            <a href="#vehicles" class="btn btn-primary btn-lg">
+                                <i class="fas fa-car"></i>
+                                Ver Veículos
+                            </a>
+                            <a href="#" class="btn btn-whatsapp btn-lg" id="heroWhatsappBtn">
+                                <i class="fab fa-whatsapp"></i>
+                                Fale Conosco
+                            </a>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <img src="images/hero-car.png" alt="Carro Premium" class="hero-car" id="heroCar" onerror="this.src='https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800'">
+                        <div class="hero-decoration"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats section">
+            <div class="container">
+                <div class="stats-grid" id="statsGrid">
+                    <div class="stat-item">
+                        <div class="stat-number" id="stat1Number">500+</div>
+                        <div class="stat-label" id="stat1Label">Veículos Vendidos</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="stat2Number">15+</div>
+                        <div class="stat-label" id="stat2Label">Anos de Experiência</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="stat3Number">98%</div>
+                        <div class="stat-label" id="stat3Label">Clientes Satisfeitos</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="stat4Number">50+</div>
+                        <div class="stat-label" id="stat4Label">Marcas Disponíveis</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vehicles Section -->
+        <section class="cars-section section" id="vehicles">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle" id="vehiclesSectionSubtitle">Nossa Frota</span>
+                    <h2 class="section-title" id="vehiclesSectionTitle">Veículos <span class="text-gradient">Disponíveis</span></h2>
+                    <p class="section-description" id="vehiclesSectionDescription">
+                        Explore nossa seleção exclusiva de veículos seminovos e 0km com garantia e procedência comprovada.
+                    </p>
+                </div>
+
+                <!-- Filter Tabs -->
+                <div class="filter-tabs" id="filterTabs">
+                    <button class="filter-tab active" data-filter="all">Todos</button>
+                    <button class="filter-tab" data-filter="suv">SUVs</button>
+                    <button class="filter-tab" data-filter="sedan">Sedans</button>
+                    <button class="filter-tab" data-filter="hatch">Hatches</button>
+                    <button class="filter-tab" data-filter="pickup">Pickups</button>
+                    <button class="filter-tab" data-filter="sport">Esportivos</button>
+                </div>
+
+                <!-- Cars Grid -->
+                <div class="cars-grid" id="carsGrid">
+                    <!-- Cars will be dynamically loaded here -->
+                </div>
+
+                <div class="section-header" style="margin-top: 3rem;">
+                    <a href="#vehicles" class="btn btn-secondary" id="loadMoreBtn">
+                        <i class="fas fa-plus"></i>
+                        Ver Mais Veículos
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features-section section" id="about">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle" id="featuresSectionSubtitle">Por Que Nos Escolher</span>
+                    <h2 class="section-title" id="featuresSectionTitle">Excelência em <span class="text-gradient">Cada Detalhe</span></h2>
+                    <p class="section-description" id="featuresSectionDescription">
+                        Há mais de uma década entregando qualidade, confiança e as melhores condições do mercado.
+                    </p>
+                </div>
+
+                <div class="features-grid" id="featuresGrid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="feature-title">Garantia Total</h3>
+                        <p class="feature-description">Todos os nossos veículos possuem garantia de fábrica ou garantia estendida para sua tranquilidade.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-file-contract"></i>
+                        </div>
+                        <h3 class="feature-title">Documentação OK</h3>
+                        <p class="feature-description">Veículos com procedência comprovada e documentação regularizada. Transparência total.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-percentage"></i>
+                        </div>
+                        <h3 class="feature-title">Financiamento Facilitado</h3>
+                        <p class="feature-description">Parcelas que cabem no seu bolso. Trabalhamos com os principais bancos do país.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-exchange-alt"></i>
+                        </div>
+                        <h3 class="feature-title">Avaliamos seu Usado</h3>
+                        <p class="feature-description">Traga seu carro atual e faça a troca com as melhores condições do mercado.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h3 class="feature-title">Suporte 24/7</h3>
+                        <p class="feature-description">Atendimento personalizado antes, durante e após a compra. Estamos sempre disponíveis.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h3 class="feature-title">Entrega em Casa</h3>
+                        <p class="feature-description">Levamos seu novo carro até você. Entregas para todo o Brasil com segurança.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials-section section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle" id="testimonialsSectionSubtitle">Depoimentos</span>
+                    <h2 class="section-title" id="testimonialsSectionTitle">O Que Nossos <span class="text-gradient">Clientes Dizem</span></h2>
+                </div>
+
+                <div class="testimonials-slider" id="testimonialsSlider">
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Cliente" class="testimonial-avatar">
+                            <div class="testimonial-author">
+                                <div class="testimonial-name">Carlos Silva</div>
+                                <div class="testimonial-role">Empresário</div>
+                            </div>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">Atendimento excepcional! Comprei meu SUV aqui e foi a melhor experiência de compra que já tive. Recomendo a todos!</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Cliente" class="testimonial-avatar">
+                            <div class="testimonial-author">
+                                <div class="testimonial-name">Ana Beatriz</div>
+                                <div class="testimonial-role">Advogada</div>
+                            </div>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">Processo de financiamento rápido e sem burocracia. Saí dirigindo meu carro no mesmo dia. Equipe muito profissional!</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Cliente" class="testimonial-avatar">
+                            <div class="testimonial-author">
+                                <div class="testimonial-name">Roberto Mendes</div>
+                                <div class="testimonial-role">Médico</div>
+                            </div>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">Já é o terceiro carro que compro com eles. Sempre veículos impecáveis e com preços justos. Confio 100%!</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <img src="https://randomuser.me/api/portraits/women/28.jpg" alt="Cliente" class="testimonial-avatar">
+                            <div class="testimonial-author">
+                                <div class="testimonial-name">Mariana Costa</div>
+                                <div class="testimonial-role">Arquiteta</div>
+                            </div>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">Encontrei exatamente o que procurava. O vendedor foi super atencioso e me ajudou a escolher o melhor modelo para minha família.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section section" id="contact">
+            <div class="container">
+                <div class="cta-content">
+                    <h2 class="cta-title" id="ctaTitle">Pronto Para Encontrar Seu Próximo Carro?</h2>
+                    <p class="cta-description" id="ctaDescription">
+                        Entre em contato agora e receba uma proposta exclusiva. Nossa equipe está pronta para ajudar você!
+                    </p>
+                    <a href="#" class="btn btn-secondary btn-lg" id="ctaWhatsappBtn">
+                        <i class="fab fa-whatsapp"></i>
+                        Falar com Consultor
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Map Section -->
+        <section class="map-section" id="mapSection" style="height: 400px; background: var(--primary-dark);">
+            <div id="map" style="width: 100%; height: 100%;"></div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="images/logo.png" alt="Auto Elite" id="footerLogo" onerror="this.style.display='none'">
+                        <span class="footer-logo-text" id="footerLogoText">AUTO ELITE</span>
+                    </div>
+                    <p class="footer-description" id="footerDescription">
+                        Há mais de 15 anos oferecendo os melhores veículos com qualidade, confiança e as melhores condições de pagamento do mercado.
+                    </p>
+                    <div class="footer-social" id="footerSocial">
+                        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-links-section">
+                    <h4 class="footer-title">Links Rápidos</h4>
+                    <ul class="footer-links" id="footerQuickLinks">
+                        <li><a href="#home" class="footer-link"><i class="fas fa-chevron-right"></i> Início</a></li>
+                        <li><a href="#vehicles" class="footer-link"><i class="fas fa-chevron-right"></i> Veículos</a></li>
+                        <li><a href="#about" class="footer-link"><i class="fas fa-chevron-right"></i> Sobre Nós</a></li>
+                        <li><a href="#contact" class="footer-link"><i class="fas fa-chevron-right"></i> Contato</a></li>
+                        <li><a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Financiamento</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links-section">
+                    <h4 class="footer-title">Categorias</h4>
+                    <ul class="footer-links" id="footerCategories">
+                        <li><a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> SUVs</a></li>
+                        <li><a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Sedans</a></li>
+                        <li><a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Hatches</a></li>
+                        <li><a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Pickups</a></li>
+                        <li><a href="#" class="footer-link"><i class="fas fa-chevron-right"></i> Esportivos</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h4 class="footer-title">Contato</h4>
+                    <div class="footer-contact-item" id="footerPhone">
+                        <div class="footer-contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="footer-contact-text">
+                            <strong>Telefone</strong>
+                            <span>(11) 99999-9999</span>
+                        </div>
+                    </div>
+                    <div class="footer-contact-item" id="footerEmail">
+                        <div class="footer-contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="footer-contact-text">
+                            <strong>E-mail</strong>
+                            <span>contato@autoelite.com.br</span>
+                        </div>
+                    </div>
+                    <div class="footer-contact-item" id="footerAddress">
+                        <div class="footer-contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="footer-contact-text">
+                            <strong>Endereço</strong>
+                            <span>Av. Paulista, 1000 - São Paulo, SP</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="footer-copyright" id="footerCopyright">
+                    © 2026 Auto Elite. Todos os direitos reservados.
+                </p>
+                <div class="footer-legal">
+                    <a href="#">Termos de Uso</a>
+                    <a href="#">Política de Privacidade</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="#" class="whatsapp-float" id="whatsappFloat" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">Fale Conosco!</span>
+    </a>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop" aria-label="Voltar ao topo">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Car Detail Modal -->
+    <div class="modal-overlay" id="carModal">
+        <div class="modal">
+            <button class="modal-close" id="modalClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img src="" alt="Car Image" id="modalCarImage">
+                </div>
+                <div class="modal-content">
+                    <span class="modal-badge" id="modalBadge">Destaque</span>
+                    <h2 class="modal-title" id="modalTitle">Nome do Veículo</h2>
+                    <div class="modal-specs" id="modalSpecs">
+                        <!-- Specs will be loaded dynamically -->
+                    </div>
+                    <div class="modal-price">
+                        <div class="modal-price-old" id="modalPriceOld">De R$ 150.000</div>
+                        <div class="modal-price-current" id="modalPriceCurrent">R$ 129.990</div>
+                        <div class="modal-price-info">Em até 60x no financiamento</div>
+                    </div>
+                    <div class="modal-actions">
+                        <a href="#" class="btn btn-whatsapp btn-lg" id="modalWhatsappBtn" style="width: 100%;">
+                            <i class="fab fa-whatsapp"></i>
+                            Tenho Interesse
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
